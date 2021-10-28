@@ -62,6 +62,7 @@ int main(){
         for(int i=0;i<6;++i){
             printf("average score in Assignment - %d : %f\n",i+1,1.0*arr[i]/count);
         }
+        fclose(fp);
         sleep(1);
         exit(0);
     }
@@ -114,6 +115,7 @@ int main(){
         for(int i=0;i<6;++i){
             printf("average score in Assignment - %d : %f\n",i+1,1.0*brr[i]/count);
         }
+        fclose(fp);
         sleep(1);
         printf("\n\n=============================================================\n\n");
         exit(0);
