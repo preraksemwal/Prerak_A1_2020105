@@ -140,5 +140,5 @@ int main(){
     for(int i=0;i<6;++i){
         printf("average score of both section in Assignment %d - %f\n",i+1,1.0*(arr[i]+brr[i])/total );
     }
-
+    return 0;
 }
