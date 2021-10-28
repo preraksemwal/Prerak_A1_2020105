@@ -1,20 +1,17 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include<math.h>
 
 #include<unistd.h> // exec, fork
 #include<pthread.h>
-#include<sched.h>  // clone
 #include<sys/wait.h>
 #include<sys/types.h>
-#include<sys/stat.h>
-#include<fcntl.h>
 
 
-int arr[6]={0};
-int brr[6]={0};
-int total = 0;
+
+int arr[6]={0};                   //  section A
+int brr[6]={0};                     // section B
+int total = 0;                              // total students in sheet
 
 
 void* thread2_caller(void* args){
@@ -29,7 +26,7 @@ void* thread2_caller(void* args){
     }
 
     char buff[200];
-    int consider=0, count=0;
+    int consider=0, count=0;                     // when to consider horizontal row or not
 
     while(fgets(buff,sizeof(buff),fp)){
         char* token;
@@ -80,11 +77,11 @@ void* thread1_caller(void* args){
     FILE* fp = fopen("student_record.csv","r");
 
     if(fp==NULL){
-        perror("failed");
+        perror("failed");                                   // error case
         exit(1);
     }
 
-    char buff[200];
+    char buff[200];                     // buffer for readinf the file
     int consider=0, count=0;
 
     while(fgets(buff,sizeof(buff),fp)){
