@@ -115,7 +115,7 @@ void* thread1_caller(void* args){
     printf("\t-----  Section - B  -----\n");
 
     for(int i=0;i<6;++i){
-        printf("average score in Assignment - %d : %f\n",i+1,1.0*brr[i]/count);
+        printf("average score in Assignment : %d : %f\n",i+1,1.0*brr[i]/count);
     }
     total += count;
 
