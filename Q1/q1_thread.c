@@ -59,6 +59,7 @@ void* thread2_caller(void* args){
     }
 
     total += count;
+    fclose(fp);
     sleep(1);
 
 }
@@ -115,6 +116,7 @@ void* thread1_caller(void* args){
         printf("average score in Assignment : %d : %f\n",i+1,1.0*brr[i]/count);
     }
     total += count;
+    fclose(fp);
     sleep(1);
     
 }
