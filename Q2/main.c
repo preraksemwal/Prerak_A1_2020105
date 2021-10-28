@@ -5,6 +5,6 @@
 int main(){
 
    A();    // this will call 
+   
    return 0;
-
 }

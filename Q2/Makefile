@@ -1,6 +1,7 @@
 
 all: compile
 	./run
+	./brun
 
 compile: 
 	gcc main.c a.c c.c -o run
