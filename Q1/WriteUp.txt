@@ -1,19 +1,20 @@
 
+
  
-Logic for q1_fork.c :  I am firstly spawn the process and creating a parent and child process then in each process and then inside each process we will read the .csv file first inside the child
-                       for section-A and then inside parent for the section-B. We do so by using the fopen call and strtok() function call in C;and we know first line of .csv file is not of any use hence we just read it. For all
-                       subsequent lines we ignore the first string token as it is roo no. The subsequent token in each row tells us the section and hence tells us whether I will be storing the marks during a particular child or parent process.
-                       Like in child only if the second token of the row is 'A', I will be adding subsequent 6 integers (typcasted using atoi()) into my array data structure's corresponding index. At the end of each process I will use
-                       iterate through this array and find the average score of each section. 
+Logic for q1_fork.c :  I am firstly spawn the process and creating a parent and child process then in each process and then inside each process we will read the .csv file 
+                       first inside the child for section-A and then inside parent for the section-B. We do so by using the fopen call and strtok() function call in C;and we know first 
+                       line of .csv file is not of any use hence we just read it. For all subsequent lines we ignore the first string token as it is roo no. The subsequent token in each
+                       row tells us the section and hence tells us whether I will be storing the marks during a particular child or parent process.
+                       Like in child only if the second token of the row is 'A', I will be adding subsequent 6 integers (typcasted using atoi()) into my array data structure's corresponding
+                       index. At the end of each process I will use iterate through this array and find the average score of each section. 
 
-Logic for q1_thread.c : We will be threading the process using the pthread_create() system call. We first create a parent thread that would internally create a child thread too. We will be using pthread_join() twice to ensure that first the child thread terminates(section A), 
-                        followed by parent thread(section B) and then un-executed code of main is excecuted finally. Inside each process we will b reading the .csv file just like we did the 'q1_fork.c' program file.
+Logic for q1_thread.c : We will be threading the process using the pthread_create() system call. We first create a parent thread that would internally create a child thread too. We will be
+                        using pthread_join() twice to ensure that first the child thread terminates(section A), followed by parent thread(section B) and then un-executed code of main is 
+                        excecuted finally. Inside each process we will b reading the .csv file just like we did the 'q1_fork.c' program file.
 
 
 
 
-
-'
 DESCRIPTION:
 
 fork() system call => when we call this system call it creates a child program of the parent process with a totally separtae memory space.
@@ -34,6 +35,5 @@ fopen()           =>  whenever we open a file fopen() will return a value of -1 
 fork()            =>  whenever fork() system call fails during forking of the current process it returns a negative value
 pthread_create()  =>  whenver pthread_create() system call fails to create a thread it returns value -1 and hence we exploit this to capture if this happens.
                       This can happen due to many kernel level complications and some errors.
-
 
 
