@@ -1,15 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include<math.h>
-
 #include<unistd.h> // exec, fork
-#include<pthread.h>
-#include<sched.h>  // clone
 #include<sys/wait.h>
 #include<sys/types.h>
-#include<sys/stat.h>
-#include<fcntl.h>
+
 
 int main(){
     printf("\n")  ;
@@ -25,9 +20,9 @@ int main(){
     else if(pid_v==0){ // child
         printf("inside child...\n\n");
 
-        FILE* fp = fopen("student_record.csv","r");
+        FILE* fp = fopen("student_record.csv","r");    // file opening call
 
-        if(fp==NULL){
+        if(fp==NULL){                              // error case handling
             perror("failed");
             exit(1);
         }
@@ -51,14 +46,14 @@ int main(){
             while(token!=NULL){
                 if(stepIn==1){
                     char str[4];
-                    strcpy(str,token);
+                    strcpy(str,token);           // to copy
                     arr[index] += atoi(str);
                     index++;
                 }
                 token = strtok(NULL,",");
             }
 
-            consider = 1;
+            consider = 1;                       // from now on we will consider each horizontal row
 
         }
 
@@ -74,12 +69,12 @@ int main(){
 
 
     else{ // parent
-        waitpid(pid_v,&status,0);
+        waitpid(pid_v,&status,0);                // waiting for child
         printf("\n\ninside parent...\n\n");
 
         FILE* fp = fopen("student_record.csv","r");
 
-        if(fp==NULL){
+        if(fp==NULL){               // error handling
             perror("failed");
             exit(1);
         }
@@ -87,9 +82,9 @@ int main(){
         int brr[6]={0};
 
         char buff[200];
-        int consider=0, count=0;
+        int consider=0, count=0;        // which line of excel to consider or not
 
-        while(fgets(buff,sizeof(buff),fp)){
+        while(fgets(buff,sizeof(buff),fp)){   
             char* token;
             token = strtok(buff,",");
             token = strtok(NULL,",");
@@ -98,7 +93,7 @@ int main(){
                 stepIn = 1;
                 count++;
             }
-            token = strtok(NULL,",");
+            token = strtok(NULL,",");        // reads in forms of token -
             int index = 0;
             while(token!=NULL){
                 if(stepIn==1){
