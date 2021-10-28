@@ -62,7 +62,7 @@ void* thread2_caller(void* args){
     }
 
     total += count;
-
+    sleep(1);
 
 }
 
@@ -118,11 +118,12 @@ void* thread1_caller(void* args){
         printf("average score in Assignment : %d : %f\n",i+1,1.0*brr[i]/count);
     }
     total += count;
-
+    sleep(1);
     
 }
 
 int main(){  
+    printf("\n\n");
  
     pthread_t t1_v;
     int ret1_v = pthread_create(&t1_v, NULL, thread1_caller, NULL);
