@@ -136,12 +136,9 @@ int main(){
 
     printf("\n\nboth threads terminated!\n\n");
 
-    int aa=0,bb=0;
+    
     for(int i=0;i<6;++i){
-        aa+=arr[i];
-        bb+=brr[i];
         printf("average score of both section in Assignment %d - %f\n",i+1,1.0*(arr[i]+brr[i])/total );
     }
- 
 
 }
