@@ -11,7 +11,8 @@
 #include<sys/stat.h>
 #include<fcntl.h>
 
-int main(){  
+int main(){
+    printf("\n")  ;
  
     int pid_v, status;
     pid_v = fork();
@@ -66,6 +67,7 @@ int main(){
         for(int i=0;i<6;++i){
             printf("average score in Assignment - %d : %f\n",i+1,1.0*arr[i]/count);
         }
+        sleep(1);
         exit(0);
     }
 
@@ -117,8 +119,9 @@ int main(){
         for(int i=0;i<6;++i){
             printf("average score in Assignment - %d : %f\n",i+1,1.0*brr[i]/count);
         }
+        sleep(1);
+        printf("\n\n=============================================================\n\n");
         exit(0);
 
     }
-
 }
